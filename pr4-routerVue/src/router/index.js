@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
   {
@@ -6,6 +6,12 @@ const routes = [
     name: 'Home',
     component: () => import('../views/HomeView.vue'),
   },
+  {
+    path: '/destination/:name',  // Ruta dinámica con el parámetro 'name'
+    name: 'Destination',
+    component: () => import('../components/ComponenteDestino.vue'),
+    props: true,  // Hacer que el parámetro se pase como prop
+  }
 ];
 
 const router = createRouter({
@@ -13,5 +19,4 @@ const router = createRouter({
   routes,
 });
 
-
-export default router
+export default router;
