@@ -7,10 +7,10 @@ const routes = [
     component: () => import('../views/HomeView.vue'),
   },
   {
-    path: '/destination/:name',  // Ruta dinámica con el parámetro 'name'
+    path: '/destination/:name',  
     name: 'Destination',
     component: () => import('../components/ComponenteDestino.vue'),
-    props: true,  // Hacer que el parámetro se pase como prop
+    props: true,  
   }
 ];
 

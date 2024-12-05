@@ -14,15 +14,9 @@
                     <img :src="`/img/${destination.image}`" alt="Destination Image" class="destination-image" />
                     <p class="destination-description">{{ destination.description }}</p>
                 </div>
-            </div>
-
             <!-- Experiencias -->
-            <div class="experiencias">
-                <div v-for="experience in destination.experiences" :key="experience.slug" class="experience-card">
-                    <h3>{{ experience.name }}</h3>
-                    <img :src="`/img/${experience.image}`" alt="Experience Image" />
-                </div>
-            </div>
+            <ComponenteExp :destination="destination"/>
+        </div>
         </div>
     </div>
 </template>
@@ -31,6 +25,7 @@
 import { ref, onMounted } from 'vue';
 import data from '../assets/data.json';
 import { useRoute, useRouter } from 'vue-router';
+import { ComponenteExp } from '../components/ComponenteExp.vue'
 
 // Obtener el nombre del destino de la ruta dinámica
 const route = useRoute();
