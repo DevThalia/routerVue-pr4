@@ -39,7 +39,7 @@
 import { ref, computed } from 'vue';
 import data from '../assets/data.json';
 import { useRoute, useRouter } from 'vue-router';
-import ExperienceDetail from './ExperienceDetail.vue';
+import ExperienceDetail from './ComponenteExp.vue';
 
 const route = useRoute();
 const destinationName = route.params.name;
