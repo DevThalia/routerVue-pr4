@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
     <div v-if="currentDestination" class="destination-container">
         <!-- Contenedor principal -->
         <div class="principal">
@@ -15,44 +14,20 @@
                     {{ currentDestination.description }}
                 </p>
             </div>
-=======
-    <div>
-        <!-- Filtrar el destino según el nombre pasado en la ruta -->
-        <div v-for="destination in destinations.filter(d => d.name === destinationName)" :key="destination.id" class="destination-card">
-
-            <!-- Contenedor principal -->
-            <div class="principal">
-                <div class="title-container">
-                    <h2>{{ destination.name }}</h2>
-                    <button class="button" @click="goBack">Volver</button>
-                </div>
-
-                <div class="image-description-container">
-                    <img :src="`/img/${destination.image}`" alt="Destination Image" class="destination-image" />
-                    <p class="destination-description">{{ destination.description }}</p>
-                </div>
-            <!-- Experiencias -->
-            <ComponenteExp :destination="destination"/>
-        </div>
->>>>>>> 1b53cc45eaff8f51de0118176b0877f19f1aa45a
         </div>
 
         <!-- Experiencias -->
         <div class="experiencias" v-if="!selectedExperience">
             <div v-for="experience in currentDestination.experiences" :key="experience.slug" class="experience-card">
                 <h3>{{ experience.name }}</h3>
-                <img :src="`/img/${experience.image}`" 
-                     :alt="`Imagen de la experiencia: ${experience.name}`" 
-                     @click="selectExperience(experience)" />
+                <img :src="`/img/${experience.image}`" :alt="`Imagen de la experiencia: ${experience.name}`"
+                    @click="selectExperience(experience)" />
             </div>
         </div>
 
         <!-- Detalle de la experiencia seleccionada -->
-        <ExperienceDetail 
-            v-if="selectedExperience" 
-            :experience="selectedExperience" 
-            @close="selectedExperience = null" 
-        />
+        <ExperienceDetail v-if="selectedExperience" :experience="selectedExperience"
+            @close="selectedExperience = null" />
     </div>
 
     <div v-else class="error-message">
@@ -64,11 +39,7 @@
 import { ref, computed } from 'vue';
 import data from '../assets/data.json';
 import { useRoute, useRouter } from 'vue-router';
-<<<<<<< HEAD
-import ExperienceDetail from './ComponenteExp.vue';
-=======
-import { ComponenteExp } from '../components/ComponenteExp.vue'
->>>>>>> 1b53cc45eaff8f51de0118176b0877f19f1aa45a
+import ExperienceDetail from './ExperienceDetail.vue';
 
 const route = useRoute();
 const destinationName = route.params.name;
@@ -95,6 +66,7 @@ const goBack = () => {
     cursor: pointer;
     transition: transform 0.2s;
 }
+
 .experience-card img:hover {
     transform: scale(1.05);
 }
